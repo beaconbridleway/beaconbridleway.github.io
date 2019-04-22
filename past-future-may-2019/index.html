@@ -6,7 +6,7 @@
     body  {
         margin: 0;
         font-family:  sans-serif;
-        font-size:  16pt;
+        font-size:  12pt;
         -webkit-text-size-adjust: 100%;
         -moz-text-size-adjust:  100%;
         -ms-text-size-adjust: 100%;
@@ -15,6 +15,13 @@
     }
     a {
         text-decoration:  none;
+    }
+    *.mail-ref  *.label {
+        display:  none;
+    }
+
+    body  {
+        color:  rgba(0, 0, 0, 0.75);
     }
     h1  {
         font-size:  250%;
@@ -28,13 +35,33 @@
     div.flyer a {
         color:  inherit;
     }
+
+    @media  print {
+        *.screen-only   {
+            display:  none;
+        }
+    }
+    @media  screen  {
+        *.print-only  {
+            display:  none;
+        }
+    }
 </style>
 </head>
 
 <body>
-<div class="flyer" style="
+<div class="screen-only" style="
+    padding:  30px 60px;
+    width:  520px;
+">
+Part <strong>1</strong> of a <strong style="text-transform: uppercase;">Past &amp; Future</strong> (May 13) <strong>/</strong> <a href="http://beaconbridleway.org/envision-may-2019"><strong style="text-transform: uppercase;">Envision</strong></a> (May 18) series:
+</div>
+
+<div id="flyer" class="flyer" style="
     padding:  60px;
     width:  520px;  height: 708px;
+
+    font-size:  16pt;
 
     /******/color:  white;/******/
     background-image:
@@ -44,6 +71,7 @@
     background-size:  cover;
     background-position:  center;
 
+    position: relative;
     display:  flex;
     flex-direction: column;
 ">
@@ -80,6 +108,15 @@
 ">
 <small><small><small>Photo:&#160; <a href="https://sova.si.edu/details/AAG.SRS?s=0&amp;n=10&amp;t=C&amp;q=#ref4775"><!--[OMIT:]View east, -->Beacon Street near Saint Mary's Street, July 1, 1909 (by Thomas W. Sears, courtesy of Smithsonian Institution)</a></small></small></small>
 </div>
+</div>
+
+<div class="screen-only" style="
+    border-top: 1px solid;
+    padding:  30px 60px;
+    width:  520px;
+">
+<p style="margin-top: 0;">Follow:&#160; <em><a href="https://twitter.com/BeaconBridleway">@BeaconBridleway</a></em><!--[OMIT:].--></p>
+<p style="margin-bottom: 0;">E-mail:&#160; <em><span class="mail-ref"><span class="label">[local-part:]</span>hello<span class="label">[sign:]</span>@<span class="label">[domain:]</span>beaconbridleway.org</span></em><!--[OMIT:].--></p>
 </div>
 </body>
 </html>
