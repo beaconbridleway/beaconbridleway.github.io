@@ -24,6 +24,10 @@
         padding:  30px;
         width:  580px;
     }
+    *.sub-part  + *.sub-part  {
+        margin-top: 15px;
+        padding-top:  15px;
+    }
     div.bleed-part  {
         width:  640px;
         background-color: rgb(223, 223, 223);
@@ -32,49 +36,42 @@
         margin-top: 30px;
     }
     div.part  + div.part  ,
-            div.sub-part  + div.sub-part  {
+            *.sub-part  + *.sub-part.sep  {
         border-top: 1px solid;
     }
-    div.sub-part  + div.sub-part  {
-        margin-top: 30px;
-        padding-top:  30px;
-    }
     div.part:before ,
-            div.part:after  ,
-            div.sub-part  + div.sub-part:before {
+            div.part:after  {
         display:  block;
         content:  "";
         margin-top: 30px;
         margin-bottom:  -30px;
     }
+    *.sub-part  + *.sub-part:before {
+        display:  block;
+        content:  "";
+        margin-top: 15px;
+        margin-bottom:  -15px;
+    }
 
     div.part    ul  {
         list-style: none; /* ! */
         position: relative;
-        padding-left: /***40***/30px; /* ! */
+        margin-left:  /***40***/30px; /* ! */
+        padding-left: 0;  /* ! */
     }
     div.part    ul  > li:before {
         position: absolute;
-        left: /***20***/10px; /* ! */
+        left: -20px;  /* ! */
         font-weight:  bold;
         content:  "+";
+    }
+    div.part    ul  > li.arrow:before {
+        content:  "\21E8";
     }
     div.part    li  blockquote  {
         margin-left:  /***40***/30px; /* ! */
         margin-right: /***40***/30px; /* ! */
-    }
-
-    div#updates   ul  > li.arrow:before {
-        content:  "\21E8";
-    }
-    div#updates   li:not(.arrow)  + li.arrow  /*[TODO?]*/ {
-        margin-top: 30px;
-    }
-    div#updates   li:not(.arrow)  span.by {
-        display:  none; /*[TODO?]*/
-    }
-    div#updates   li  blockquote  {
-        /***display:  none***/color:  rgba(0, 0, 0, 0.5); /*[TODO?]*/
+        color:  rgba(0, 0, 0, 0.5);
     }
 </style>
 </head>
@@ -103,28 +100,9 @@
 <iframe width="640" height="360" frameborder="0" src="https://www.youtube.com/embed/0GYf3IhCzjM" allow="encrypted-media; accelerometer; gyroscope" allowfullscreen=""></iframe><!--[OR:]width="960" height="540"-->
 </div>
 
-<div id="events" class="part">
+<div id="events" class="part sub-part">
 <p><strong>Events:</strong></p>
 </div>
-
-<!--[TODO!][REPLACE:]-->
-<div class="bleed-part" style="position: relative;">
-<iframe width="640" height="828" frameborder="0" src="envision-oct-2019/flyer.html"></iframe>
-<a style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" href="envision-oct-2019"></a>
-</div>
-<!--[WITH:]
-<div class="bleed-part" style="/*[TODO?][DELETE:]*/ position: relative; /*[ADD:]*/ /***display: flex; flex-direction: row;***/ /*[TODO?][DELETE:]*/ width: 933px;">
---><!--[TODO?][DELETE:]--><!--<div style="position: absolute; left: 640px; top: 0; margin-left: 15px;">--><!--[/DELETE]--><!--
-<div style="width: /*[TODO?][DELETE:]*//***320px***/278px/*[ADD:]*//***189px***/; height: /*[DELETE:]*//***414px***/360px/*[ADD:]*//***245px***/; overflow: hidden; position: relative;">
-<iframe width="640" height="828" frameborder="0" style="transform: scale(/*[TODO?][DELETE:]*//***0.5***/0.435/*[ADD:]*//***0.295***/); transform-origin: 0 0;" src="envision-oct-2019/flyer.html"></iframe>
-<a style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" href="envision-oct-2019"></a>
-</div>
---><!--[TODO?][DELETE:]--><!--</div>--><!--[/DELETE]--><!--
-<div style="/*[TODO?][ADD:]*/ /***margin-left: 15px;***/ /*[TODO?(B)][ADD:]*/ /***width: 436px; height: 245px; overflow: hidden;***/">
---><!--[TODO?(A)][ADD:]width="436" height="245"--><!--<iframe width="640" height="360" frameborder="0" style="/*[TODO?(B)][ADD:]*/ /***transform: scale(0.681); transform-origin: 0 0;***/" src="https://www.youtube.com/embed/Wzr_XVWiPG0" allow="encrypted-media; accelerometer; gyroscope" allowfullscreen=""></iframe>
-</div>
-</div>
-[/REPLACE]-->
 
 <div class="bleed-part" style="/*[TODO?][DELETE:]*/ position: relative; /*[ADD:]*/ /***display: flex; flex-direction: row;***/ /*[TODO?][DELETE:]*/ width: 933px;">
 <!--[TODO?][DELETE:]--><div style="position: absolute; left: 640px; top: 0; margin-left: 15px;"><!--[/DELETE]-->
@@ -143,6 +121,25 @@
 <!--[TODO?][ADD:]</div>-->
 </div>
 
+<!--[DONE!][REPLACE:]
+<div class="bleed-part" style="position: relative;">
+<iframe width="640" height="828" frameborder="0" src="envision-oct-2019/flyer.html"></iframe>
+<a style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" href="envision-oct-2019"></a>
+</div>
+[WITH:]-->
+<div class="bleed-part" style="/*[TODO?][DELETE:]*/ position: relative; /*[ADD:]*/ /***display: flex; flex-direction: row;***/ /*[TODO?][DELETE:]*/ width: 933px;">
+<!--[TODO?][DELETE:]--><div style="position: absolute; left: 640px; top: 0; margin-left: 15px;"><!--[/DELETE]-->
+<div style="width: /*[TODO?][DELETE:]*//***320px***/278px/*[ADD:]*//***189px***/; height: /*[DELETE:]*//***414px***/360px/*[ADD:]*//***245px***/; overflow: hidden; position: relative;">
+<iframe width="640" height="828" frameborder="0" style="transform: scale(/*[TODO?][DELETE:]*//***0.5***/0.435/*[ADD:]*//***0.295***/); transform-origin: 0 0;" src="envision-oct-2019/flyer.html"></iframe>
+<a style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" href="envision-oct-2019"></a>
+</div>
+<!--[TODO?][DELETE:]--></div><!--[/DELETE]-->
+<div style="/*[TODO?][ADD:]*/ /***margin-left: 15px;***/ /*[TODO?(B)][ADD:]*/ /***width: 436px; height: 245px; overflow: hidden;***/">
+<!--[TODO?(A)][ADD:]width="436" height="245"--><iframe width="640" height="360" frameborder="0" style="/*[TODO?(B)][ADD:]*/ /***transform: scale(0.681); transform-origin: 0 0;***/" src="https://www.youtube.com/embed/Cz00F0NaBM8" allow="encrypted-media; accelerometer; gyroscope" allowfullscreen=""></iframe>
+</div>
+</div>
+<!--[/REPLACE]-->
+
 <div class="bleed-part" style="/*[TODO?][DELETE:]*/ position: relative; /*[ADD:]*/ /***display: flex; flex-direction: row;***/ /*[TODO?][DELETE:]*/ width: 933px;">
 <!--[TODO?][DELETE:]--><div style="position: absolute; left: 640px; top: 0; margin-left: 15px;"><!--[/DELETE]-->
 <div style="width: /*[TODO?][DELETE:]*//***320px***/278px/*[ADD:]*//***189px***/; height: /*[DELETE:]*//***414px***/360px/*[ADD:]*//***245px***/; overflow: hidden; position: relative;">
@@ -155,46 +152,70 @@
 </div>
 </div>
 
-<div id="updates" class="part">
+<div class="part">
+<div id="updates" class="sub-part">
 <p><strong>Updates:</strong></p>
-<ul>
-<li>
-<p><span class="by">Jules Milner Brage and Jacob Meunier:</span> <strong><a href="https://brookline.wickedlocal.com/news/20191221/letter-to-editor-progress-toward-more-humane-and-green-beacon-street-in-brookline">Progress toward a more humane and green Beacon Street in Brookline</a></strong>. <em>Brookline TAB: Letters to the Editor</em>, December 2019.</p>
-<blockquote>In 2019, Brookline gathered to envision Beacon Street and made progress securing further Bridle Path study.</blockquote>
-</li>
-<!--[TODO: move back below October Envision event?]--><li>
-<p><span class="by">Christian MilNeil:</span> <strong><a href="https://mass.streetsblog.org/2019/05/28/brookline-advocates-aim-to-restore-olmsteds-vision-on-beacon-street">Brookline advocates aim to restore Olmsted’s vision on Beacon Street</a></strong>. <em>Streetsblog MASS</em>, May 2019.</p>
-<blockquote>A weekend demonstration project illustrates how Brookline could make room for a new protected bikeway <!--[REPLACE:]from Cleveland Circle to Fenway[WITH:]-->...<!--[/REPLACE]--> with a relatively minor relocation of on-street parking areas.</blockquote>
-</li>
-
+<ul class="sub-part">
 <li class="arrow">
-<p><span class="by">With the Brookline Bicycle Advisory Committee:</span> <strong><a href="envision-oct-2019">Envision Beacon Street 2</a></strong><!--[DELETE:]: [...][DELETE:], now west of Washington Square-->. Between Williston Road and Englewood Avenue, Brookline, October 2019.</p>
+<p><strong class="type">State action:</strong> <span class="by">Massachusetts Office of the Governor with the Executive Office of Energy and Environmental Affairs, Department of Transportation, and Department of Conservation and Recreation:</span> <strong>Award, through the <a href="https://www.mass.gov/guides/masstrails-grants">MassTrails Grant Program</a>, of $32,000 for Beacon Street Bridle Path feasibility and concept design study</strong>. (<a href="http://blog.mass.gov/transportation/uncategorized/baker-polito-administration-announces-4-million-in-masstrails-grants">Announced</a>) July 31, 2020.</p>
 </li>
 <li class="arrow">
-<p><span class="by">With the Brookline Bicycle Advisory Committee:</span> <strong><a href="envision-may-2019">Envision Beacon Street</a></strong>: Stroll, jog, scoot, and bike the historic Olmsted bridle path along the <!--[DELETE:]Beacon Street -->median. Between Carlton and Kent Streets, Brookline, May 2019.</p>
+<p><strong class="type">State action:</strong> <span class="by">Massachusetts Legislature and Governor, per amendment by Representatives Thomas Vitolo, Michael Moran, and Edward Coppinger, with support from Senator Cynthia Creem:</span> <strong>Appropriation, from the State’s 2019 budget surplus, of $50,000 for Beacon Street Bridle Path feasibility study</strong>. <em><!--[OMIT:]Chapter 142 of the Acts of 2019 / --><a href="https://malegislature.gov/Bills/191/H4246">House Bill 4246 for the 191st General Court</a></em>. <!--[OMIT:](Amendment filed) October 15, 2019; -->(<a href="https://malegislature.gov/Laws/SessionLaws/Acts/2019/Chapter142">Enacted and signed</a>) December 12&#8211;13, 2019.</p>
 </li>
 <li class="arrow">
-<p><span class="by">With the Brookline Historical Society:</span> <strong><a href="past-future-may-2019">Past and Future Beacon Street</a></strong>: A talk and discussion about the historic Olmsted plan for <!--[REPLACE:]Beacon S[WITH:]-->the s<!--[/REPLACE]-->treet and a vision to restore its bridle path. Public Library, Brookline Village, May 2019.</p>
-</li>
-<li>
-<p><span class="by">Tony Lechuga (with Steve Miller):</span> <strong><a href="https://www.emeraldnetwork.info/beacon_street_bridle_path_featuredgreenway">Featured greenway: Beacon Street Bridleway</a></strong>. <em>Emerald Network: Greenway Stories</em> (blog), April 2019.</p>
-<blockquote>Beacon Street, from Audubon Circle to Cleveland Circle, is a pleasant, tree-lined boulevard that over the past year has been incorporated into <!--[REPLACE:]our[WITH:]-->[the]<!--[/REPLACE]--> wider vision of the Emerald Network.</blockquote>
-</li>
-<li>
-<p><span class="by">Steve Miller:</span> <strong><a href="https://www.livablestreets.info/back_to_the_future">Back to the future: Using Olmsted as inspiration</a></strong>. <em>LivableStreets Alliance: Public Way</em> (blog), January 2019.</p>
-<blockquote>For over a century, Beacon Street in Brookline has been a gorgeous boulevard. But changing times bring new usage patterns. <!--[REPLACE:]Beacon S[WITH:]-->[The] s<!--[/REPLACE]-->treet has previously gone through one re-creation. Is it now time for a second?</blockquote>
-</li>
-
-<li class="arrow">
-<p><span class="by">Brookline Town Meeting:</span> <strong><a href="https://www.youtube.com/watch?v=U0XjPoVW4To&amp;t=14265">Warrant Article 23</a></strong>, November 2018. (Adopted.)</p>
-</li>
-<li>
-<p><span class="by">Jules Milner-Brage:</span> <strong><a href="http://milner-brage.com/jules/2018/08/29/resolution-bridle-path-beacon-st-brookline"><!--[REPLACE:]Resolution calling for a Beacon Street Olmsted Bridle Path restoration study[WITH:]-->Resolution calling for a study of the feasibility of restoring the Olmsted bridle path along the median of Beacon Street in Brookline<!--[/REPLACE]--></a></strong>. <em>Brookline Town Meeting Warrant</em>, November 2018: Article 23. (Submitted August 2018.)</p>
-</li>
-<li>
-<p><span class="by">Jules Milner-Brage (with Jackson Lynch and Peter Furth):</span> <strong><a href="http://milner-brage.com/jules/2018/05/07/concept-bottom-line-bridle-path-beacon-st-brookline"><!--[REPLACE:]Concept bottom line: Restoring the bridle path on Beacon Street, per preliminary CAD modeling and ground-truthing study of its whole extent in Brookline[WITH:]-->Concept<!--[TODO?][DELETE:]--> bottom line,<!--[/DELETE]--> per preliminary<!--[DELETE:] CAD modeling and ground-truthing--> study: Restoring the bridle path on Beacon Street in Brookline<!--[/REPLACE]--></a></strong>. May 2018.</p>
+<p><strong class="type">Town action:</strong> <span class="by">Brookline Town Meeting, per recommendation by the Transportation Board and Department of Public Works - Transportation Division:</span> <strong>Appropriation, from the Town’s 2019 Uber/Lyft trip fee revenues, of $117,757 for Beacon Street Bridle Path feasibility and concept design study</strong>. <em>Warrant Article 3 for the <a href="https://www.brooklinema.gov/DocumentCenter/View/20751/Combined-Reports-November-2019-Brookline-Special-Town-Meeting-with-Supplements">November 2019 Special Town Meeting</a></em>. (<a href="https://www.youtube.com/watch?v=LOYszUPpqik&amp;t=648">Adopted</a>) November 19, 2019.</p>
 </li>
 </ul>
+<ul class="sub-part">
+<li>
+<p><strong class="type">Community event:</strong> <span class="by">With the Brookline Bicycle Advisory Committee:</span> <strong><a href="envision-oct-2019">Envision Beacon Street 2: Stroll, jog, scoot, and bike the historic Olmsted bridle path along the <!--[DELETE:]Beacon Street -->median, now west of Washington Square</a></strong>. Between Williston Road and Englewood Avenue, Brookline. October 5, 2019.</p>
+</li>
+<li>
+<p><strong class="type">Community event:</strong> <span class="by">With the Brookline Bicycle Advisory Committee:</span> <strong><a href="envision-may-2019">Envision Beacon Street: Stroll, jog, scoot, and bike the historic Olmsted bridle path along the <!--[DELETE:]Beacon Street -->median</a></strong>. Between Carlton and Kent Streets, Brookline. May 18, 2019.</p>
+</li>
+<li>
+<p><strong class="type">Community event:</strong> <span class="by">With the Brookline Historical Society:</span> <strong><a href="past-future-may-2019">Past and Future Beacon Street: A talk and discussion about the historic Olmsted plan for <!--[REPLACE:]Beacon S[WITH:]-->the s<!--[/REPLACE]-->treet and a vision to restore its bridle path</a></strong>. Public Library, Brookline Village. May 13, 2019.</p>
+</li>
+<li>
+<p><strong class="type">Policy essay:</strong> <span class="by">Steven Miller:</span> <strong><a href="https://www.livablestreets.info/back_to_the_future">Back to the future: Using Olmsted as inspiration<!--[ADD:]--> [Steps to move Beacon Street bridle path restoration from idea to reality]<!--[/ADD]--></a></strong>. <em>LivableStreets Alliance: The Public Way</em><!--[OMIT:] (blog)-->. January 10, 2019.</p>
+<blockquote>For over a century, Beacon Street in Brookline has been a gorgeous boulevard. But changing times bring new usage patterns. <!--[REPLACE:]Beacon S[WITH:]-->[The] s<!--[/REPLACE]-->treet has previously gone through one re-creation. Is it now time for a second?</blockquote>
+</li>
+</ul>
+<ul class="sub-part">
+<li class="arrow">
+<p><strong class="type">Town action:</strong> <span class="by">Brookline Town Meeting, per petition by Jules Milner-Brage:</span> <strong><a href="http://milner-brage.com/jules/2018/08/29/resolution-bridle-path-beacon-st-brookline"><!--[REPLACE:]Resolution calling for a Beacon Street Olmsted Bridle Path restoration study[WITH:]-->Resolution calling for a study of the feasibility of restoring the Olmsted bridle path along the median of Beacon Street in Brookline<!--[/REPLACE]--></a></strong>. <em>Warrant Article 23 for the <a href="https://www.brooklinema.gov/DocumentCenter/View/18092/Combined-Reports-November-13-2018-Special-Town-Meeting-with-Supplements">November 2018 Special Town Meeting</a></em>. <!--[OMIT:](Petition submitted) August 30, 2018; -->(<a href="https://www.youtube.com/watch?v=U0XjPoVW4To&amp;t=14265">Adopted</a>) November 13, 2018.</p>
+</li>
+<li>
+<p><strong class="type">Technical report:</strong> <span class="by">Jules Milner-Brage with Jackson Lynch and Peter Furth:</span> <strong><a href="http://milner-brage.com/jules/2018/05/07/concept-bottom-line-bridle-path-beacon-st-brookline"><!--[REPLACE:]Concept bottom line: Restoring the bridle path on Beacon Street, per preliminary CAD modeling and ground-truthing study of its whole extent in Brookline[WITH:]-->Concept bottom line, per preliminary<!--[DELETE:] CAD modeling and ground-truthing--> study: Restoring the bridle path on Beacon Street in Brookline<!--[/REPLACE]--></a></strong>. May 7, 2018.</p>
+<blockquote>When you search for a way to improve bicycling safety on Beacon St<!--[REPLACE:].[WITH:]-->reet<!--[/REPLACE]-->, look for a protected two-way path&#x2014;and the kernel of a linear park&#x2014;<!--[DELETE:](-->presently<!--[DELETE:])--> hidden in plain sight: the historical “bridle way” along the median. Next to the row of shade trees on the wide side of the train tracks, this intrinsic element of the Olmsteds’ 1880<!--[DELETE:]’-->s design for the street, and built versions to the 1930<!--[DELETE:]’-->s, awaits restoration.
+<br/> <br/><!--[REPLACE:]And i[WITH:]-->I<!--[/REPLACE]-->t seems that this improvement may be achievable with little car parking loss, while concurrently rendering the street more humane through shortened cross-walk distances, moderated car travel speeds, and better access for people to shelter provided by the trees in the median.</blockquote>
+</li>
+</ul>
+</div>
+
+<div id="media" class="sub-part">
+<p><strong>Media:</strong></p>
+<ul>
+<li>
+<p><span class="by">Jenna Fisher:</span> <strong><a href="https://patch.com/massachusetts/brookline/brookline-reenvision-beacon-street-inspired-olmsted">Brookline to reenvision Beacon Street inspired by Olmsted</a></strong>. <em>Brookline Patch</em>. August 3, 2020.</p>
+<blockquote>Have you ever wondered why Brookline doesn’t create a multi-use path alongside the MBTA Green C-line tracks<!--[REPLACE:] through town, where people can more easily exercise and bike safe from cars&#x2014;similar to the Southwest Corridor trail that runs from JP to Back Bay or the trail that runs along the Muddy River[WITH:]-->...<!--[/REPLACE]-->? Well, with the help of<!--[REPLACE:] $35,000 from [WITH:]-->...<!--[/REPLACE]-->a state grant, the Town is edging closer to looking into the feasibility of doing just that.<!--[OMIT:]
+<br/> <br/>The Baker-Polito Administration Monday awarded--><!--[REPLACE:] $4 million in [WITH:]--><!--...--><!--[/REPLACE]--><!--MassTrails Grants to 55 local trail projects throughout the state, including --><!--[REPLACE:]$32,000[WITH:]--><!--[one]--><!--[/REPLACE]--><!-- to Brookline.--></blockquote>
+</li>
+<li>
+<p><span class="by">Jules Milner-Brage and Jacob Meunier:</span> <strong><a href="https://brookline.wickedlocal.com/news/20191221/letter-to-editor-progress-toward-more-humane-and-green-beacon-street-in-brookline">Progress toward a more humane and green Beacon Street in Brookline</a></strong>. <em>Brookline TAB: Letters to the Editor</em>. December 21, 2019.</p>
+<blockquote>In May and October this year, hundreds of Brookline and Boston-area neighbors came together to explore the Beacon Street Bridle Path space through community events organized by volunteers<!--[REPLACE:]. The way the path was used at these events hearkens back to Frederick Law Olmsted’s vision of a safe space for recreation and transportation, separate from horse-drawn carriage traffic, with the “sociability of a promenade.” People of all ages came on bicycles, on foot, in wheelchairs, and on scooters to enjoy segments of the path that had been temporarily reopened [WITH:]-->...<!--[/REPLACE]-->with help from the Public Works and Police departments<!--[REPLACE:]. Restoring the path would honor Olmsted’s design.[WITH:]-->...<!--[/REPLACE]-->
+<br/> <br/>Representatives Vitolo, Moran, and Coppinger deserve our thanks for their advocacy on<!--[REPLACE:] this [WITH:]-->...<!--[/REPLACE]-->important funding for the Bridle Path Feasibility Study, as do their colleagues in the state legislature and our local Town Meeting members for approving the supplemental budgets to support it.</blockquote>
+</li>
+<li>
+<p><span class="by">Christian MilNeil:</span> <strong><a href="https://mass.streetsblog.org/2019/05/28/brookline-advocates-aim-to-restore-olmsteds-vision-on-beacon-street">Brookline advocates aim to restore Olmsted’s vision on Beacon Street</a></strong>. <em>Streetsblog MASS</em>. May 28, 2019.</p>
+<blockquote>A weekend demonstration project illustrates how Brookline could make room for a new protected bikeway<!--[REPLACE:] from Cleveland Circle to Fenway [WITH:]-->...<!--[/REPLACE]-->with a relatively minor relocation of on-street parking areas.</blockquote>
+</li>
+<li>
+<p><span class="by">Anthony Lechuga with Steven Miller:</span> <strong><a href="https://www.emeraldnetwork.info/beacon_street_bridle_path_featuredgreenway">Featured greenway: Beacon Street Bridleway</a></strong>. <em>Emerald Network: Greenway Stories</em><!--[OMIT:] (blog)-->. April 30, 2019.</p>
+<blockquote>Beacon Street, from Audubon Circle to Cleveland Circle, is a pleasant, tree-lined boulevard that over the past year has been incorporated into <!--[REPLACE:]our[WITH:]-->[the]<!--[/REPLACE]--> wider vision of the Emerald Network.</blockquote>
+</li>
+</ul>
+</div>
 </div>
 
 <div class="part">
