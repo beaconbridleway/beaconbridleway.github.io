@@ -24,33 +24,28 @@
         padding:  30px;
         width:  580px;
     }
-    *.sub-part  + *.sub-part  {
-        margin-top: 15px;
-        padding-top:  15px;
-    }
     div.bleed-part  {
         width:  640px;
         background-color: rgb(223, 223, 223);
     }
-    div.bleed-part  + div.bleed-part  {
+    div.bleed-part  + div.bleed-part  ,
+            *.sub-part  + *.sub-part  {
         margin-top: 30px;
     }
     div.part  + div.part  ,
             *.sub-part  + *.sub-part.sep  {
         border-top: 1px solid;
     }
+    *.sub-part  + *.sub-part.sep  {
+        padding-top:  30px;
+    }
     div.part:before ,
-            div.part:after  {
+            div.part:after  ,
+            *.sub-part  + *.sub-part.sep:before {
         display:  block;
         content:  "";
         margin-top: 30px;
         margin-bottom:  -30px;
-    }
-    *.sub-part  + *.sub-part:before {
-        display:  block;
-        content:  "";
-        margin-top: 15px;
-        margin-bottom:  -15px;
     }
 
     div.part    ul  {
@@ -193,7 +188,7 @@
 </ul>
 </div>
 
-<div id="media" class="sub-part">
+<div id="media" class="sub-part sep">
 <p><strong>Media:</strong></p>
 <ul>
 <li>
